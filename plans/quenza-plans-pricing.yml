@@ -1,0 +1,200 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Quenza
+providerId: quenza
+created: '2026-07-10'
+modified: '2026-07-10'
+reconciled: false
+tags:
+- Coaching
+- Therapy
+- Client Engagement
+- Practice Management
+- Plans
+description: >-
+  Quenza is sold as a tiered per-workspace SaaS subscription, billed monthly or
+  annually (annual is discounted). Tiers scale by number of clients, number of
+  professionals (seats), activity library size, and platform features. The
+  public REST API (v1) is a plan-gated feature - it is included on the
+  Collective and Beyond tiers, not on Spark, Growth, or Impact. Outbound
+  webhooks are available from Growth up (1 webhook on Growth, 2 on Impact, 5 on
+  Collective, unlimited on Beyond). All plans include a 30-day free trial with
+  no credit card required. Prices below are per workspace, in USD; annual prices
+  are the discounted effective monthly rate when billed yearly.
+notes: >-
+  Prices and limits were read from the Quenza pricing page and may change;
+  verify current tiers, client/seat limits, and API/webhook availability at
+  https://quenza.com/pricing/ during reconciliation. The API itself carries no
+  separate fee beyond the subscription tier that unlocks it.
+sources:
+- https://quenza.com/pricing/
+- https://developers.quenza.com/docs/v1
+plans:
+- id: quenza-spark
+  name: Spark
+  type: paid
+  description: >-
+    Entry tier for solo practitioners getting started. Up to 10 clients, 1
+    professional, 100+ pre-made activities, client portal, mobile apps, notes,
+    tasks, 1:1 chat, and programs. No API access and no webhooks.
+  entries:
+  - label: Subscription
+    name: spark_subscription
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: '25'
+    userMultiplied: false
+  - label: Subscription (Annual, effective monthly)
+    name: spark_subscription_annual
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: '20'
+    userMultiplied: false
+  elements:
+  - name: Up to 10 Clients
+  - name: 1 Professional
+  - name: 100+ Pre-Made Activities
+  - name: Client Portal and Mobile Apps
+  - name: Notes, Tasks, 1:1 Chat, Programs
+  - name: No API Access
+- id: quenza-growth
+  name: Growth
+  type: paid
+  description: >-
+    Growing practice tier. Up to 250 clients, 1 professional, 200+ activities,
+    plus file sharing, groups, custom logo, and 1 webhook. No API access.
+  entries:
+  - label: Subscription
+    name: growth_subscription
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: '50'
+    userMultiplied: false
+  - label: Subscription (Annual, effective monthly)
+    name: growth_subscription_annual
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: '40'
+    userMultiplied: false
+  elements:
+  - name: Up to 250 Clients
+  - name: 1 Professional
+  - name: 200+ Pre-Made Activities
+  - name: File Sharing and Groups
+  - name: Custom Logo
+  - name: 1 Webhook
+  - name: No API Access
+- id: quenza-impact
+  name: Impact
+  type: paid
+  description: >-
+    Established practice tier. Up to 400 clients, 1 professional, 400+
+    activities, custom domains, custom email sender, and 2 webhooks. No API
+    access.
+  entries:
+  - label: Subscription
+    name: impact_subscription
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: '125'
+    userMultiplied: false
+  - label: Subscription (Annual, effective monthly)
+    name: impact_subscription_annual
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: '100'
+    userMultiplied: false
+  elements:
+  - name: Up to 400 Clients
+  - name: 1 Professional
+  - name: 400+ Pre-Made Activities
+  - name: Custom Domains and Email Sender
+  - name: 2 Webhooks
+  - name: No API Access
+- id: quenza-collective
+  name: Collective
+  type: paid
+  description: >-
+    Team tier and the entry point for programmatic access. Up to 500 clients, 3
+    professionals, team chat, roles, 5 webhooks, and - notably - API access to
+    the Quenza v1 REST API.
+  entries:
+  - label: Subscription
+    name: collective_subscription
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: '160'
+    userMultiplied: false
+  - label: Subscription (Annual, effective monthly)
+    name: collective_subscription_annual
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: '128'
+    userMultiplied: false
+  elements:
+  - name: Up to 500 Clients
+  - name: 3 Professionals
+  - name: Team Chat
+  - name: API Access (v1 REST API)
+  - name: 5 Webhooks
+- id: quenza-beyond
+  name: Beyond
+  type: enterprise
+  description: >-
+    Custom enterprise tier for large practices and organizations. Unlimited
+    clients and professionals, unlimited webhooks, API access, roles and
+    permissions, and priority support. Custom pricing - contact Quenza.
+  entries:
+  - label: Enterprise Agreement
+    name: beyond_enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Unlimited Clients
+  - name: Unlimited Professionals
+  - name: API Access (v1 REST API)
+  - name: Unlimited Webhooks
+  - name: Roles and Permissions
+  - name: Priority Support
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

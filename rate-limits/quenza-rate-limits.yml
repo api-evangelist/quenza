@@ -1,0 +1,62 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Quenza
+providerId: quenza
+created: '2026-07-10'
+modified: '2026-07-10'
+reconciled: false
+tags:
+- Coaching
+- Therapy
+- Client Engagement
+- Rate Limiting
+- Quotas
+description: >-
+  Quenza does not publish fixed numeric request-rate limits for the v1 REST API
+  in its public reference. The documented throughput control is pagination -
+  list endpoints accept offset and limit query parameters, with a maximum limit
+  of 100 items per request and a default of 20. Practical usage is also bounded
+  by the subscription tier that unlocks API access (Collective and Beyond) and
+  by that tier's client, professional, and webhook allowances rather than by a
+  documented per-minute request cap.
+notes: >-
+  No numeric per-account or per-endpoint request-rate limit is documented as of
+  the review date. The values below reflect the only quantified constraints
+  present in the published OpenAPI description (pagination limit) plus honest
+  not-published markers. Verify any current limits with Quenza support or in the
+  workspace Developer Tools during reconciliation.
+sources:
+- https://developers.quenza.com/docs/v1
+- https://quenza.com/pricing/
+responseCodes:
+  throttled: 429
+limits:
+- name: API Request Rate
+  scope: account
+  metric: requests
+  limit: not published
+  notes: No fixed numeric request-rate limit is documented for the Quenza v1 REST API.
+- name: Pagination Page Size
+  scope: request
+  metric: items
+  limit: '100'
+  notes: List endpoints accept limit (default 20, max 100) and offset query parameters.
+- name: API Access Eligibility
+  scope: account
+  metric: plan
+  limit: Collective and Beyond only
+  notes: The v1 API is a plan-gated feature; Spark, Growth, and Impact do not include API access.
+- name: Webhooks
+  scope: account
+  metric: webhooks
+  limit: per plan (Growth 1, Impact 2, Collective 5, Beyond unlimited)
+  notes: Outbound webhook count is capped by subscription tier.
+policies:
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter and honor Retry-After on any 429 responses, since numeric limits are not published.
+- name: Pagination
+  description: Iterate large collections using offset and limit (max 100) and follow the links.next / links.prev cursors returned in list responses.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

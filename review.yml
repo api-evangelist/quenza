@@ -1,0 +1,99 @@
+aid: quenza
+name: Quenza
+review:
+  question: Does Quenza expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-10'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Quenza's documented public API (v1) is
+    request/response REST over HTTPS, authenticated with a workspace Bearer
+    token. There is no server-push transport (WebSocket or SSE) documented on
+    Quenza's public API surface to model. Quenza does offer outbound webhooks
+    (server-to-endpoint HTTP callbacks, available from the Growth plan up), but
+    webhooks are ordinary HTTP POSTs to a consumer-provided URL, not a
+    bidirectional WebSocket channel, and their event catalog is not published in
+    the OpenAPI reference. The in-app 1:1 and team chat features are product
+    surfaces, not a documented public realtime API.
+findings:
+  summary: |
+    Quenza does not publish a documented public WebSocket API. Quenza is a
+    digital care / client-engagement platform for coaches and therapists. It
+    exposes a real, documented public REST API (v1) at
+    https://developers.quenza.com/docs/v1, base URL
+    https://developers.quenza.com/v1, authenticated with a Bearer token
+    generated in the workspace under Settings -> Developer Tools -> API Token.
+    The documented API is pure request/response REST over HTTPS and covers
+    Clients, Groups, Members (professionals), and Tasks. No realtime,
+    bidirectional, or streaming WebSocket (ws:// or wss://) endpoint is
+    documented on Quenza's public API. Quenza does support outbound webhooks
+    (HTTP callbacks), but those are server-to-endpoint HTTP POSTs, not a
+    WebSocket transport.
+  accessModel: |
+    The v1 REST API is a first-party public API gated by plan. API access is
+    included on the Collective and Beyond (enterprise) plans; webhooks are
+    available from the Growth plan up (1 webhook on Growth, 2 on Impact, 5 on
+    Collective, unlimited on Beyond). Authentication is a single workspace
+    Bearer token. The documented surface is scoped - it manages people and
+    workflow (clients, groups, members, tasks) rather than the full product
+    domain; there are no public endpoints in v1 for building activities,
+    pathways/programs, assessments, or reading assessment results, so those were
+    NOT modeled as APIs.
+  transports:
+  - protocol: REST
+    scheme: https
+    baseURL: https://developers.quenza.com/v1
+    documented: true
+    note: Quenza API v1. Bearer-token auth. Clients, Groups, Members, Tasks. Pagination via offset/limit (max limit 100).
+  - protocol: Webhook
+    scheme: https
+    documented: partial
+    note: Outbound HTTP webhooks are a listed plan feature (Growth+), but the event catalog and payloads are not published in the OpenAPI reference. Server-to-endpoint HTTP, not WebSocket.
+  - protocol: WebSocket
+    scheme: wss
+    documented: false
+    note: No WebSocket endpoint is documented anywhere in the Quenza API v1 reference as of the review date.
+  endpointsConfirmedRest:
+  - GET    https://developers.quenza.com/v1/clients
+  - POST   https://developers.quenza.com/v1/clients
+  - GET    https://developers.quenza.com/v1/clients/{client}
+  - PATCH  https://developers.quenza.com/v1/clients/{client}
+  - POST   https://developers.quenza.com/v1/clients/{client}/archive
+  - POST   https://developers.quenza.com/v1/clients/{client}/unarchive
+  - POST   https://developers.quenza.com/v1/groups
+  - POST   https://developers.quenza.com/v1/groups/{group}/members
+  - GET    https://developers.quenza.com/v1/members
+  - POST   https://developers.quenza.com/v1/members
+  - PATCH  https://developers.quenza.com/v1/members/{professional}
+  - GET    https://developers.quenza.com/v1/tasks
+  endpointsModeled: false
+  endpointsModeledNote: |
+    All endpoints listed above are confirmed directly from Quenza's published
+    OpenAPI 3.1 description embedded in the v1 API reference - none are
+    speculative. Product capabilities that exist in the Quenza UI but have NO
+    documented public endpoint (activities, pathways/programs, assessments,
+    assessment results, chat) were deliberately left unmodeled rather than
+    fabricated.
+sources:
+- url: https://developers.quenza.com/docs/v1
+  type: APIReference
+  note: Quenza API v1 reference (Stoplight Elements) with embedded OpenAPI 3.1 document. Base https://developers.quenza.com/v1, Bearer auth.
+- url: https://quenza.com/pricing/
+  type: Pricing
+  note: Plan tiers (Spark/Growth/Impact/Collective/Beyond); API access on Collective and Beyond; webhooks from Growth up.
+- url: https://quenza.com/
+  type: Website
+  note: Product overview - activities, pathways/programs, client portal, mobile apps, notes, tasks, chat.
+- url: https://help.quenza.com
+  type: SupportKnowledgeBase
+  note: Support and knowledge base; no WebSocket API documented.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists. Quenza's documented public API is
+    request/response REST (v1), and its realtime-adjacent feature (webhooks) is
+    outbound HTTP, not a server-push WebSocket. No AsyncAPI document was created
+    because there is no documented server-push transport on Quenza's public API
+    to model.

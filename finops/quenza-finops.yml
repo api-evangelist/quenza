@@ -1,0 +1,101 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Quenza
+providerId: quenza
+created: '2026-07-10'
+modified: '2026-07-10'
+reconciled: false
+tags:
+- Coaching
+- Therapy
+- Client Engagement
+- Practice Management
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Quenza spend. Quenza is a per-workspace SaaS subscription billed
+  monthly or annually across five tiers (Spark, Growth, Impact, Collective,
+  Beyond). Cost is driven by the tier you select, which scales by number of
+  clients, number of professional seats, activity library size, and features
+  such as webhooks and API access. The v1 REST API carries no separate metered
+  fee - it is unlocked as a feature on the Collective and Beyond tiers, so the
+  cost of "using the API" is simply the subscription tier that includes it.
+  Annual billing lowers the effective monthly rate. There is no usage-metered or
+  per-call pricing dimension.
+notes: >-
+  Per-tier prices and limits were read from the Quenza pricing page and may
+  change; verify at https://quenza.com/pricing/ during reconciliation. Beyond is
+  custom-priced. Because pricing is flat-per-tier rather than usage-metered, the
+  meters below track subscription and seat/client capacity rather than API call
+  volume.
+sources:
+- https://quenza.com/pricing/
+- https://developers.quenza.com/docs/v1
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Quenza
+serviceCategory: Practice Management and Client Engagement
+billingModel:
+  pricingCategory: Subscription-Based
+  billingFrequency: Monthly or Annual
+  billingCurrency: USD
+  chargeCategories:
+  - Purchase
+  - Adjustment
+focusColumns:
+  ServiceName: Quenza
+  ServiceCategory: Practice Management and Client Engagement
+  ProviderName: Quenza
+  PublisherName: Quenza
+  InvoiceIssuerName: Quenza
+  BillingCurrency: USD
+  ChargeCategory: Purchase
+  PricingCategory: Subscription-Based
+meters:
+- name: subscription_tier
+  description: The selected Quenza plan (Spark, Growth, Impact, Collective, Beyond), billed flat per month or year.
+  unit: subscription
+  aggregation: max
+  dimensions:
+  - account
+  - plan
+- name: client_capacity
+  description: Number of clients allowed by the tier (10 / 250 / 400 / 500 / unlimited); a capacity limit rather than a billed unit.
+  unit: clients
+  aggregation: max
+  dimensions:
+  - account
+  - plan
+- name: professional_seats
+  description: Number of professional seats included by the tier (1 / 1 / 1 / 3 / unlimited).
+  unit: seats
+  aggregation: max
+  dimensions:
+  - account
+  - plan
+- name: webhook_capacity
+  description: Number of outbound webhooks allowed by the tier (0 / 1 / 2 / 5 / unlimited).
+  unit: webhooks
+  aggregation: max
+  dimensions:
+  - account
+  - plan
+principles:
+- name: Visibility
+  description: Track which tier each workspace is on and whether its client/seat/webhook capacity is actually being used, so you are not paying for a higher tier than needed.
+- name: Allocation
+  description: Map each Quenza workspace/subscription to the practice, team, or program that owns it.
+- name: Optimization
+  description: Choose annual billing for the discounted effective monthly rate; right-size the tier to real client and seat counts; only step up to Collective/Beyond when API access or added capacity is genuinely required.
+- name: Accountability
+  description: Assign an owner per workspace and review the tier against actual client, seat, and API/webhook usage at each renewal.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
