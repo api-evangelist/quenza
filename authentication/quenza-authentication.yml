@@ -1,0 +1,21 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/quenza-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: http
+  type: http
+  scheme: bearer
+  description: |-
+    Authenticate using a **Bearer token** in the `Authorization` header:
+
+    ```
+    Authorization: Bearer {your-token}
+    ```
+
+    You can generate or regenerate your API token in your Quenza workspace under
+    **Settings → Developer Tools → API Token**.
+  sources:
+  - openapi/quenza-openapi.yml

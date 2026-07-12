@@ -110,6 +110,10 @@ apis:
     using assignee_type and assignee_id together. Confirmed endpoint - GET
     /tasks.
 common:
+- type: DomainSecurity
+  url: security/quenza-domain-security.yml
+- type: Authentication
+  url: authentication/quenza-authentication.yml
 - type: Website
   url: https://quenza.com
 - type: LinkedIn
