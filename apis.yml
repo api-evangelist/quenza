@@ -110,6 +110,8 @@ apis:
     using assignee_type and assignee_id together. Confirmed endpoint - GET
     /tasks.
 common:
+- type: AgenticAccess
+  url: agentic-access/quenza-agentic-access.yml
 - type: DomainSecurity
   url: security/quenza-domain-security.yml
 - type: Authentication
