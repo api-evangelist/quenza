@@ -1,0 +1,162 @@
+openapi: 3.1.0
+info:
+  title: Quenza ArchiveClient CreateGroup API
+  version: 1.0.0
+  description: The Quenza API allows you to integrate your systems with Quenza — manage clients, sync data, and automate workflows. Authenticate using a Bearer token from your workspace settings under Developer Tools → API Token.
+servers:
+- url: https://developers.quenza.com/v1
+security:
+- http: []
+tags:
+- name: CreateGroup
+paths:
+  /groups:
+    post:
+      operationId: developers.v1.groups.create
+      summary: Create a group
+      tags:
+      - CreateGroup
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateGroupRequest'
+      responses:
+        '201':
+          description: '`GroupResource`'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GroupResource'
+                required:
+                - data
+        '401':
+          $ref: '#/components/responses/AuthenticationException'
+        '422':
+          $ref: '#/components/responses/ValidationException'
+components:
+  schemas:
+    GroupStatus:
+      type: string
+      enum:
+      - active
+      - archived
+      title: GroupStatus
+    GroupResource:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type:
+          - string
+          - 'null'
+        picture:
+          type:
+          - string
+          - 'null'
+        auto_send_assignments_to_new_members:
+          type: boolean
+        file_collection_id:
+          type: string
+        is_chat_enabled:
+          type: string
+        status:
+          $ref: '#/components/schemas/GroupStatus'
+        archived_at:
+          type: string
+        created_at:
+          type: string
+        updated_at:
+          type: string
+      required:
+      - id
+      - name
+      - description
+      - picture
+      - auto_send_assignments_to_new_members
+      - file_collection_id
+      - is_chat_enabled
+      - status
+      - archived_at
+      - created_at
+      - updated_at
+      title: GroupResource
+    CreateGroupRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 255
+        description:
+          type:
+          - string
+          - 'null'
+          maxLength: 255
+        enable_chat:
+          type:
+          - boolean
+          - 'null'
+        auto_send_assignments_to_new_members:
+          type:
+          - boolean
+          - 'null'
+      required:
+      - name
+      title: CreateGroupRequest
+  responses:
+    AuthenticationException:
+      description: Unauthenticated
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Error overview.
+            required:
+            - message
+    ValidationException:
+      description: Validation error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Errors overview.
+              errors:
+                type: object
+                description: A detailed description of each field that failed validation.
+                additionalProperties:
+                  type: array
+                  items:
+                    type: string
+            required:
+            - message
+            - errors
+  securitySchemes:
+    http:
+      type: http
+      description: 'Authenticate using a **Bearer token** in the `Authorization` header:
+
+
+        ```
+
+        Authorization: Bearer {your-token}
+
+        ```
+
+
+        You can generate or regenerate your API token in your Quenza workspace under
+
+        **Settings → Developer Tools → API Token**.'
+      scheme: bearer

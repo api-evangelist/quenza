@@ -1,0 +1,76 @@
+openapi: 3.1.0
+info:
+  title: Quenza ArchiveClient UnarchiveClient API
+  version: 1.0.0
+  description: The Quenza API allows you to integrate your systems with Quenza — manage clients, sync data, and automate workflows. Authenticate using a Bearer token from your workspace settings under Developer Tools → API Token.
+servers:
+- url: https://developers.quenza.com/v1
+security:
+- http: []
+tags:
+- name: UnarchiveClient
+paths:
+  /clients/{client}/unarchive:
+    post:
+      operationId: developers.v1.clients.unarchive
+      description: Restores an archived client to active status and re-enables their chats.
+      summary: Unarchive a client
+      tags:
+      - UnarchiveClient
+      parameters:
+      - name: client
+        in: path
+        required: true
+        description: The client sqid
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+        '404':
+          $ref: '#/components/responses/ModelNotFoundException'
+        '401':
+          $ref: '#/components/responses/AuthenticationException'
+components:
+  responses:
+    ModelNotFoundException:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Error overview.
+            required:
+            - message
+    AuthenticationException:
+      description: Unauthenticated
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Error overview.
+            required:
+            - message
+  securitySchemes:
+    http:
+      type: http
+      description: 'Authenticate using a **Bearer token** in the `Authorization` header:
+
+
+        ```
+
+        Authorization: Bearer {your-token}
+
+        ```
+
+
+        You can generate or regenerate your API token in your Quenza workspace under
+
+        **Settings → Developer Tools → API Token**.'
+      scheme: bearer
