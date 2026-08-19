@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Quenza ArchiveClient ListTask API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ListTask",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.quenza.com/v1/tasks",
+            "params": [
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query",
+                "description": "Number of items to skip."
+              },
+              {
+                "name": "limit",
+                "value": "20",
+                "type": "query",
+                "description": "Number of items to return per request. Max: 100."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of all tasks in the workspace. Optionally filter by assignee using `assignee_type` and `assignee_id` together."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

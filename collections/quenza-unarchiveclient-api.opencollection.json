@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Quenza ArchiveClient UnarchiveClient API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "UnarchiveClient",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Unarchive a client",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developers.quenza.com/v1/clients/:client/unarchive",
+            "params": [
+              {
+                "name": "client",
+                "value": "",
+                "type": "path",
+                "description": "The client sqid"
+              }
+            ]
+          },
+          "docs": "Restores an archived client to active status and re-enables their chats."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

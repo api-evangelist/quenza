@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Quenza ArchiveClient CreateMember API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CreateMember",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a member",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developers.quenza.com/v1/members",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Invites a new team member to the workspace and sends them an invitation email. Only `member` and `manager` roles can be assigned via the API."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

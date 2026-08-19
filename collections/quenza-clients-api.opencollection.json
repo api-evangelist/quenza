@@ -1,0 +1,144 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Quenza ArchiveClient Clients API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Clients",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List clients",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.quenza.com/v1/clients",
+            "params": [
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query",
+                "description": "Number of items to skip."
+              },
+              {
+                "name": "limit",
+                "value": "20",
+                "type": "query",
+                "description": "Number of items to return per request. Max: 100."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of all clients in the workspace."
+        },
+        {
+          "info": {
+            "name": "Create a client",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developers.quenza.com/v1/clients",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new client and sends them an invitation email."
+        },
+        {
+          "info": {
+            "name": "Get a client",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.quenza.com/v1/clients/:client",
+            "params": [
+              {
+                "name": "client",
+                "value": "",
+                "type": "path",
+                "description": "The client sqid"
+              }
+            ]
+          },
+          "docs": "Returns a single client by their ID."
+        },
+        {
+          "info": {
+            "name": "Update a client",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://developers.quenza.com/v1/clients/:client",
+            "params": [
+              {
+                "name": "client",
+                "value": "",
+                "type": "path",
+                "description": "The client sqid"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates one or more fields on an existing client. Only the fields included in the request body are updated."
+        },
+        {
+          "info": {
+            "name": "Archive a client",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developers.quenza.com/v1/clients/:client/archive",
+            "params": [
+              {
+                "name": "client",
+                "value": "",
+                "type": "path",
+                "description": "The client sqid"
+              }
+            ]
+          },
+          "docs": "Archives a client, cancels all active assignments, and makes their chats read-only."
+        },
+        {
+          "info": {
+            "name": "Unarchive a client",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developers.quenza.com/v1/clients/:client/unarchive",
+            "params": [
+              {
+                "name": "client",
+                "value": "",
+                "type": "path",
+                "description": "The client sqid"
+              }
+            ]
+          },
+          "docs": "Restores an archived client to active status and re-enables their chats."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

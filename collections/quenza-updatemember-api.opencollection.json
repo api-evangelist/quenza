@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Quenza ArchiveClient UpdateMember API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "UpdateMember",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Update a member",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://developers.quenza.com/v1/members/:professional",
+            "params": [
+              {
+                "name": "professional",
+                "value": "",
+                "type": "path",
+                "description": "The professional sqid"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates one or more fields of a team member. Only included fields are updated."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

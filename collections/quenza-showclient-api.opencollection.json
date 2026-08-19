@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Quenza ArchiveClient ShowClient API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ShowClient",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a client",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.quenza.com/v1/clients/:client",
+            "params": [
+              {
+                "name": "client",
+                "value": "",
+                "type": "path",
+                "description": "The client sqid"
+              }
+            ]
+          },
+          "docs": "Returns a single client by their ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

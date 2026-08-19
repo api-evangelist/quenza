@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Quenza ArchiveClient API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ArchiveClient",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Archive a client",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developers.quenza.com/v1/clients/:client/archive",
+            "params": [
+              {
+                "name": "client",
+                "value": "",
+                "type": "path",
+                "description": "The client sqid"
+              }
+            ]
+          },
+          "docs": "Archives a client, cancels all active assignments, and makes their chats read-only."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

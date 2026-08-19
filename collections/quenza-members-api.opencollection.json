@@ -1,0 +1,87 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Quenza ArchiveClient Members API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Members",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List members",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.quenza.com/v1/members",
+            "params": [
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query",
+                "description": "Number of items to skip."
+              },
+              {
+                "name": "limit",
+                "value": "20",
+                "type": "query",
+                "description": "Number of items to return per request. Max: 100."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of all team members (professionals) in the workspace, including pending and suspended members."
+        },
+        {
+          "info": {
+            "name": "Create a member",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developers.quenza.com/v1/members",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Invites a new team member to the workspace and sends them an invitation email. Only `member` and `manager` roles can be assigned via the API."
+        },
+        {
+          "info": {
+            "name": "Update a member",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://developers.quenza.com/v1/members/:professional",
+            "params": [
+              {
+                "name": "professional",
+                "value": "",
+                "type": "path",
+                "description": "The professional sqid"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates one or more fields of a team member. Only included fields are updated."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
