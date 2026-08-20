@@ -128,6 +128,8 @@ apis:
   humanURL: https://developers.quenza.com/docs/v1
   baseURL: https://developers.quenza.com/v1
   tags:
+  - Group
+  tags_raw:
   - Groups
   properties:
   - type: OpenAPI
@@ -212,6 +214,8 @@ apis:
   humanURL: https://developers.quenza.com/docs/v1
   baseURL: https://developers.quenza.com/v1
   tags:
+  - Task
+  tags_raw:
   - Tasks
   properties:
   - type: OpenAPI
