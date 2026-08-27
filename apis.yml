@@ -38,34 +38,6 @@ created: '2026-07-10'
 modified: '2026-07-10'
 specificationVersion: '0.23'
 apis:
-- aid: quenza:quenza-archiveclient-api
-  name: Quenza ArchiveClient API
-  description: The ArchiveClient API from Quenza — 1 operation(s) for archiveclient.
-  humanURL: https://developers.quenza.com/docs/v1
-  baseURL: https://developers.quenza.com/v1
-  tags:
-  - ArchiveClient
-  properties:
-  - type: OpenAPI
-    url: openapi/quenza-archiveclient-api-openapi.yml
-  - type: Documentation
-    url: https://developers.quenza.com/docs/v1
-  - type: APIReference
-    url: https://developers.quenza.com/docs/v1
-- aid: quenza:quenza-attachgroupmembers-api
-  name: Quenza AttachGroupMembers API
-  description: The AttachGroupMembers API from Quenza — 1 operation(s) for attachgroupmembers.
-  humanURL: https://developers.quenza.com/docs/v1
-  baseURL: https://developers.quenza.com/v1
-  tags:
-  - AttachGroupMembers
-  properties:
-  - type: OpenAPI
-    url: openapi/quenza-attachgroupmembers-api-openapi.yml
-  - type: Documentation
-    url: https://developers.quenza.com/docs/v1
-  - type: APIReference
-    url: https://developers.quenza.com/docs/v1
 - aid: quenza:quenza-clients-api
   name: Quenza Clients API
   description: The Clients API from Quenza — 4 operation(s) for clients.
@@ -76,48 +48,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/quenza-clients-api-openapi.yml
-  - type: Documentation
-    url: https://developers.quenza.com/docs/v1
-  - type: APIReference
-    url: https://developers.quenza.com/docs/v1
-- aid: quenza:quenza-createclient-api
-  name: Quenza CreateClient API
-  description: The CreateClient API from Quenza — 1 operation(s) for createclient.
-  humanURL: https://developers.quenza.com/docs/v1
-  baseURL: https://developers.quenza.com/v1
-  tags:
-  - CreateClient
-  properties:
-  - type: OpenAPI
-    url: openapi/quenza-createclient-api-openapi.yml
-  - type: Documentation
-    url: https://developers.quenza.com/docs/v1
-  - type: APIReference
-    url: https://developers.quenza.com/docs/v1
-- aid: quenza:quenza-creategroup-api
-  name: Quenza CreateGroup API
-  description: The CreateGroup API from Quenza — 1 operation(s) for creategroup.
-  humanURL: https://developers.quenza.com/docs/v1
-  baseURL: https://developers.quenza.com/v1
-  tags:
-  - CreateGroup
-  properties:
-  - type: OpenAPI
-    url: openapi/quenza-creategroup-api-openapi.yml
-  - type: Documentation
-    url: https://developers.quenza.com/docs/v1
-  - type: APIReference
-    url: https://developers.quenza.com/docs/v1
-- aid: quenza:quenza-createmember-api
-  name: Quenza CreateMember API
-  description: The CreateMember API from Quenza — 1 operation(s) for createmember.
-  humanURL: https://developers.quenza.com/docs/v1
-  baseURL: https://developers.quenza.com/v1
-  tags:
-  - CreateMember
-  properties:
-  - type: OpenAPI
-    url: openapi/quenza-createmember-api-openapi.yml
   - type: Documentation
     url: https://developers.quenza.com/docs/v1
   - type: APIReference
@@ -138,48 +68,6 @@ apis:
     url: https://developers.quenza.com/docs/v1
   - type: APIReference
     url: https://developers.quenza.com/docs/v1
-- aid: quenza:quenza-listclient-api
-  name: Quenza ListClient API
-  description: The ListClient API from Quenza — 1 operation(s) for listclient.
-  humanURL: https://developers.quenza.com/docs/v1
-  baseURL: https://developers.quenza.com/v1
-  tags:
-  - ListClient
-  properties:
-  - type: OpenAPI
-    url: openapi/quenza-listclient-api-openapi.yml
-  - type: Documentation
-    url: https://developers.quenza.com/docs/v1
-  - type: APIReference
-    url: https://developers.quenza.com/docs/v1
-- aid: quenza:quenza-listmember-api
-  name: Quenza ListMember API
-  description: The ListMember API from Quenza — 1 operation(s) for listmember.
-  humanURL: https://developers.quenza.com/docs/v1
-  baseURL: https://developers.quenza.com/v1
-  tags:
-  - ListMember
-  properties:
-  - type: OpenAPI
-    url: openapi/quenza-listmember-api-openapi.yml
-  - type: Documentation
-    url: https://developers.quenza.com/docs/v1
-  - type: APIReference
-    url: https://developers.quenza.com/docs/v1
-- aid: quenza:quenza-listtask-api
-  name: Quenza ListTask API
-  description: The ListTask API from Quenza — 1 operation(s) for listtask.
-  humanURL: https://developers.quenza.com/docs/v1
-  baseURL: https://developers.quenza.com/v1
-  tags:
-  - ListTask
-  properties:
-  - type: OpenAPI
-    url: openapi/quenza-listtask-api-openapi.yml
-  - type: Documentation
-    url: https://developers.quenza.com/docs/v1
-  - type: APIReference
-    url: https://developers.quenza.com/docs/v1
 - aid: quenza:quenza-members-api
   name: Quenza Members API
   description: The Members API from Quenza — 2 operation(s) for members.
@@ -190,20 +78,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/quenza-members-api-openapi.yml
-  - type: Documentation
-    url: https://developers.quenza.com/docs/v1
-  - type: APIReference
-    url: https://developers.quenza.com/docs/v1
-- aid: quenza:quenza-showclient-api
-  name: Quenza ShowClient API
-  description: The ShowClient API from Quenza — 1 operation(s) for showclient.
-  humanURL: https://developers.quenza.com/docs/v1
-  baseURL: https://developers.quenza.com/v1
-  tags:
-  - ShowClient
-  properties:
-  - type: OpenAPI
-    url: openapi/quenza-showclient-api-openapi.yml
   - type: Documentation
     url: https://developers.quenza.com/docs/v1
   - type: APIReference
@@ -220,48 +94,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/quenza-tasks-api-openapi.yml
-  - type: Documentation
-    url: https://developers.quenza.com/docs/v1
-  - type: APIReference
-    url: https://developers.quenza.com/docs/v1
-- aid: quenza:quenza-unarchiveclient-api
-  name: Quenza UnarchiveClient API
-  description: The UnarchiveClient API from Quenza — 1 operation(s) for unarchiveclient.
-  humanURL: https://developers.quenza.com/docs/v1
-  baseURL: https://developers.quenza.com/v1
-  tags:
-  - UnarchiveClient
-  properties:
-  - type: OpenAPI
-    url: openapi/quenza-unarchiveclient-api-openapi.yml
-  - type: Documentation
-    url: https://developers.quenza.com/docs/v1
-  - type: APIReference
-    url: https://developers.quenza.com/docs/v1
-- aid: quenza:quenza-updateclient-api
-  name: Quenza UpdateClient API
-  description: The UpdateClient API from Quenza — 1 operation(s) for updateclient.
-  humanURL: https://developers.quenza.com/docs/v1
-  baseURL: https://developers.quenza.com/v1
-  tags:
-  - UpdateClient
-  properties:
-  - type: OpenAPI
-    url: openapi/quenza-updateclient-api-openapi.yml
-  - type: Documentation
-    url: https://developers.quenza.com/docs/v1
-  - type: APIReference
-    url: https://developers.quenza.com/docs/v1
-- aid: quenza:quenza-updatemember-api
-  name: Quenza UpdateMember API
-  description: The UpdateMember API from Quenza — 1 operation(s) for updatemember.
-  humanURL: https://developers.quenza.com/docs/v1
-  baseURL: https://developers.quenza.com/v1
-  tags:
-  - UpdateMember
-  properties:
-  - type: OpenAPI
-    url: openapi/quenza-updatemember-api-openapi.yml
   - type: Documentation
     url: https://developers.quenza.com/docs/v1
   - type: APIReference
