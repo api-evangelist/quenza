@@ -12,6 +12,18 @@ description: >-
   (v1) for programmatically managing clients, team members, groups, and tasks,
   authenticated with a workspace Bearer token. API access is available on the
   Collective and Beyond plans; webhooks are available from the Growth plan up.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: open
