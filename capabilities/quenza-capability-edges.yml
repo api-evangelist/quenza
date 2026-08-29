@@ -1,0 +1,27 @@
+slug: quenza
+provider: Quenza
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Education
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Clients
+  spec_file: quenza-clients-api-openapi.yml
+  capability_id: BC-420.10
+  capability_id_l1: BC-420
+  capability_name: Customer Data Management
+  confidence: 0.7
+  evidence: 'POST /clients developers.v1.clients.create  Create a client; schemas: ClientResource, ClientStatus,
+    UpdateClientRequest'
+  reason: Operations are pure CRUD plus archive/unarchive over the practitioner's client master records
+    (ClientResource, ClientStatus), i.e. maintenance of the authoritative client/customer record. This
+    is Customer Data Management rather than any education-specific student record capability, since Quenza
+    serves coaches and therapists, not an institution's enrolled learners.

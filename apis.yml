@@ -111,6 +111,9 @@ apis:
   - type: APIReference
     url: https://developers.quenza.com/docs/v1
 common:
+- type: CapabilityMap
+  url: capabilities/quenza-capability-edges.yml
+  name: Quenza Business Capability Map
 - type: AgenticAccess
   url: agentic-access/quenza-agentic-access.yml
 - type: DomainSecurity
