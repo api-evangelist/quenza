@@ -111,6 +111,8 @@ apis:
   - type: APIReference
     url: https://developers.quenza.com/docs/v1
 common:
+- type: Pricing
+  url: https://quenza.com/pricing
 - type: CapabilityMap
   url: capabilities/quenza-capability-edges.yml
   name: Quenza Business Capability Map
