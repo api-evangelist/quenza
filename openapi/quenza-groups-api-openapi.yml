@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Quenza ArchiveClient Groups API
+  title: Quenza Groups API
   version: 1.0.0
   description: The Quenza API allows you to integrate your systems with Quenza — manage clients, sync data, and automate workflows. Authenticate using a Bearer token from your workspace settings under Developer Tools → API Token.
 servers:
@@ -90,6 +90,28 @@ paths:
           $ref: '#/components/responses/ValidationException'
 components:
   schemas:
+    CreateGroupRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 255
+        description:
+          type:
+          - string
+          - 'null'
+          maxLength: 255
+        enable_chat:
+          type:
+          - boolean
+          - 'null'
+        auto_send_assignments_to_new_members:
+          type:
+          - boolean
+          - 'null'
+      required:
+      - name
+      title: CreateGroupRequest
     GroupStatus:
       type: string
       enum:
@@ -138,29 +160,27 @@ components:
       - created_at
       - updated_at
       title: GroupResource
-    CreateGroupRequest:
-      type: object
-      properties:
-        name:
-          type: string
-          maxLength: 255
-        description:
-          type:
-          - string
-          - 'null'
-          maxLength: 255
-        enable_chat:
-          type:
-          - boolean
-          - 'null'
-        auto_send_assignments_to_new_members:
-          type:
-          - boolean
-          - 'null'
-      required:
-      - name
-      title: CreateGroupRequest
   responses:
+    ValidationException:
+      description: Validation error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Errors overview.
+              errors:
+                type: object
+                description: A detailed description of each field that failed validation.
+                additionalProperties:
+                  type: array
+                  items:
+                    type: string
+            required:
+            - message
+            - errors
     AuthenticationException:
       description: Unauthenticated
       content:
@@ -185,26 +205,6 @@ components:
                 description: Error overview.
             required:
             - message
-    ValidationException:
-      description: Validation error
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                description: Errors overview.
-              errors:
-                type: object
-                description: A detailed description of each field that failed validation.
-                additionalProperties:
-                  type: array
-                  items:
-                    type: string
-            required:
-            - message
-            - errors
   securitySchemes:
     http:
       type: http

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Quenza ArchiveClient Tasks API
+  title: Quenza Tasks API
   version: 1.0.0
   description: The Quenza API allows you to integrate your systems with Quenza — manage clients, sync data, and automate workflows. Authenticate using a Bearer token from your workspace settings under Developer Tools → API Token.
 servers:
@@ -78,6 +78,19 @@ paths:
         '401':
           $ref: '#/components/responses/AuthenticationException'
 components:
+  responses:
+    AuthenticationException:
+      description: Unauthenticated
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Error overview.
+            required:
+            - message
   schemas:
     TaskResource:
       type: object
@@ -114,19 +127,6 @@ components:
       - created_at
       - updated_at
       title: TaskResource
-  responses:
-    AuthenticationException:
-      description: Unauthenticated
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                description: Error overview.
-            required:
-            - message
   securitySchemes:
     http:
       type: http

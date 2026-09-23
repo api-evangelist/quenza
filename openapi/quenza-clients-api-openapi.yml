@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Quenza ArchiveClient Clients API
+  title: Quenza Clients API
   version: 1.0.0
   description: The Quenza API allows you to integrate your systems with Quenza — manage clients, sync data, and automate workflows. Authenticate using a Bearer token from your workspace settings under Developer Tools → API Token.
 servers:
@@ -215,6 +215,13 @@ paths:
           $ref: '#/components/responses/AuthenticationException'
 components:
   schemas:
+    ClientStatus:
+      type: string
+      enum:
+      - active
+      - pending
+      - archived
+      title: ClientStatus
     ClientResource:
       type: object
       properties:
@@ -272,20 +279,6 @@ components:
       - created_at
       - updated_at
       title: ClientResource
-    ClientStatus:
-      type: string
-      enum:
-      - active
-      - pending
-      - archived
-      title: ClientStatus
-    Gender:
-      type: string
-      enum:
-      - male
-      - female
-      - other
-      title: Gender
     UpdateClientRequest:
       type: object
       properties:
@@ -1210,7 +1203,34 @@ components:
       - first_name
       - last_name
       title: CreateClientRequest
+    Gender:
+      type: string
+      enum:
+      - male
+      - female
+      - other
+      title: Gender
   responses:
+    ValidationException:
+      description: Validation error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Errors overview.
+              errors:
+                type: object
+                description: A detailed description of each field that failed validation.
+                additionalProperties:
+                  type: array
+                  items:
+                    type: string
+            required:
+            - message
+            - errors
     AuthenticationException:
       description: Unauthenticated
       content:
@@ -1235,26 +1255,6 @@ components:
                 description: Error overview.
             required:
             - message
-    ValidationException:
-      description: Validation error
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                description: Errors overview.
-              errors:
-                type: object
-                description: A detailed description of each field that failed validation.
-                additionalProperties:
-                  type: array
-                  items:
-                    type: string
-            required:
-            - message
-            - errors
   securitySchemes:
     http:
       type: http
