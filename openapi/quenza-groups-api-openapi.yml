@@ -90,8 +90,8 @@ paths:
           $ref: '#/components/responses/ValidationException'
 components:
   responses:
-    ModelNotFoundException:
-      description: Not found
+    AuthenticationException:
+      description: Unauthenticated
       content:
         application/json:
           schema:
@@ -122,8 +122,8 @@ components:
             required:
             - message
             - errors
-    AuthenticationException:
-      description: Unauthenticated
+    ModelNotFoundException:
+      description: Not found
       content:
         application/json:
           schema:
@@ -157,12 +157,6 @@ components:
       required:
       - name
       title: CreateGroupRequest
-    GroupStatus:
-      type: string
-      enum:
-      - active
-      - archived
-      title: GroupStatus
     GroupResource:
       type: object
       properties:
@@ -205,6 +199,12 @@ components:
       - created_at
       - updated_at
       title: GroupResource
+    GroupStatus:
+      type: string
+      enum:
+      - active
+      - archived
+      title: GroupStatus
   securitySchemes:
     http:
       type: http
