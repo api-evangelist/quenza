@@ -144,6 +144,18 @@ paths:
           $ref: '#/components/responses/ValidationException'
 components:
   responses:
+    ModelNotFoundException:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Error overview.
+            required:
+            - message
     AuthenticationException:
       description: Unauthenticated
       content:
@@ -176,18 +188,6 @@ components:
             required:
             - message
             - errors
-    ModelNotFoundException:
-      description: Not found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                description: Error overview.
-            required:
-            - message
   schemas:
     UpdateTeamMemberRequest:
       type: object
