@@ -1,4 +1,4 @@
-# Quenza (quenza)
+# Quenza
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,90 +64,136 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Quenza is a digital care and client-engagement platform for coaches, therapists, and other helping professionals. Practitioners build activities - worksheets, exercises, psycho-education, intake forms, reflection prompts, and surveys - bundle them into timed pathways (care programs), and share them with clients through a branded client portal and mobile apps, then track responses, results, notes, tasks, and chat. Quenza was built by the founders of PositivePsychology.com and is based in Maastricht, Netherlands.
+Quenza is a digital care and client-engagement platform for coaches, therapists, and other helping professionals. Practitioners build activities - worksheets, exercises, psycho-education, intake forms, reflection prompts, and surveys - bundle them into timed pathways (care programs), and share them with clients through a branded client portal and mobile apps, then track responses, results, notes, tasks, and chat. Quenza exposes a documented public REST API (v1) for programmatically managing clients, team members, groups, and tasks, authenticated with a workspace Bearer token. API access is available on the Collective and Beyond plans; webhooks are available from the Growth plan up.
 
-Quenza exposes a **documented public REST API (v1)** at [developers.quenza.com/docs/v1](https://developers.quenza.com/docs/v1), base URL `https://developers.quenza.com/v1`, authenticated with a workspace **Bearer token** generated under Settings -> Developer Tools -> API Token.
+**Areas:** Coaching · Therapy · Client Engagement · Digital Health · Mental Health · Practice Management · Positive Psychology
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/quenza/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/quenza/refs/heads/main/apis.yml)
+## Quenza on APIs.io
 
-## Access Model (read this first)
+Everything profiled for Quenza is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/quenza/](https://apis.io/providers/quenza/)** — or go straight to one of the APIs or properties below.
 
-- The v1 REST API is a **real, first-party public API**, but it is **plan-gated**: API access is included on the **Collective** and **Beyond** tiers only (not Spark, Growth, or Impact).
-- Authentication is a single **workspace Bearer token**.
-- The documented surface is **scoped to people and workflow**: Clients, Groups, Members (professionals), and Tasks.
-- Quenza's UI has richer capabilities - building **activities**, **pathways/programs**, **assessments**, and reading **assessment results** - but **those have no documented public endpoints in v1**, so they are **not modeled as APIs here**. Nothing in this entry fabricates endpoints that Quenza does not publish.
-- Quenza also offers **outbound webhooks** (HTTP callbacks) from the Growth plan up, but the webhook event catalog is not published in the OpenAPI reference and webhooks are not a WebSocket transport.
+### APIs (4)
 
-## Tags
+- [Quenza Clients API](https://apis.io/apis/quenza/quenza-clients-api/) — The Clients API from Quenza — 4 operation(s) for clients.
+- [Quenza Groups API](https://apis.io/apis/quenza/quenza-groups-api/) — The Groups API from Quenza — 2 operation(s) for groups.
+- [Quenza Members API](https://apis.io/apis/quenza/quenza-members-api/) — The Members API from Quenza — 2 operation(s) for members.
+- [Quenza Tasks API](https://apis.io/apis/quenza/quenza-tasks-api/) — The Tasks API from Quenza — 1 operation(s) for tasks.
 
-- Coaching
-- Therapy
-- Client Engagement
-- Digital Health
-- Mental Health
-- Practice Management
-- Positive Psychology
+### Published properties
 
-## Timestamps
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- **Created:** 2026-07-10
-- **Modified:** 2026-07-10
+#### Agentic access (1)
 
-## APIs
+Which operations an agent can call, which act, and which need a human in the loop.
 
-### Quenza Clients API
+- [Quenza Agentic Access](https://apis.io/agentic-access/quenza/quenza-agentic-access/)
 
-Programmatically manage the people a practitioner works with - list and retrieve clients (paginated), create a client and send an invitation email, update client fields, and archive or unarchive a client.
+#### Collections (16)
 
-- **Human URL:** [https://developers.quenza.com/docs/v1](https://developers.quenza.com/docs/v1)
-- **Base URL:** `https://developers.quenza.com/v1`
-- **Confirmed endpoints:** `GET/POST /clients`, `GET/PATCH /clients/{client}`, `POST /clients/{client}/archive`, `POST /clients/{client}/unarchive`
+Postman and Open Collection request collections.
 
-### Quenza Groups API
+- [Quenza ArchiveClient API](https://apis.io/collections/quenza/open-quenza-archiveclient-api/)
+- [Quenza ArchiveClient AttachGroupMembers API](https://apis.io/collections/quenza/open-quenza-attachgroupmembers-api/)
+- [Quenza ArchiveClient Clients API](https://apis.io/collections/quenza/open-quenza-clients-api/)
+- [Quenza ArchiveClient CreateClient API](https://apis.io/collections/quenza/open-quenza-createclient-api/)
+- [Quenza ArchiveClient CreateGroup API](https://apis.io/collections/quenza/open-quenza-creategroup-api/)
+- [Quenza ArchiveClient CreateMember API](https://apis.io/collections/quenza/open-quenza-createmember-api/)
+- [Quenza ArchiveClient Groups API](https://apis.io/collections/quenza/open-quenza-groups-api/)
+- [Quenza ArchiveClient ListClient API](https://apis.io/collections/quenza/open-quenza-listclient-api/)
+- [Quenza ArchiveClient ListMember API](https://apis.io/collections/quenza/open-quenza-listmember-api/)
+- [Quenza ArchiveClient ListTask API](https://apis.io/collections/quenza/open-quenza-listtask-api/)
+- [Quenza ArchiveClient Members API](https://apis.io/collections/quenza/open-quenza-members-api/)
+- [Quenza ArchiveClient ShowClient API](https://apis.io/collections/quenza/open-quenza-showclient-api/)
+- [Quenza ArchiveClient Tasks API](https://apis.io/collections/quenza/open-quenza-tasks-api/)
+- [Quenza ArchiveClient UnarchiveClient API](https://apis.io/collections/quenza/open-quenza-unarchiveclient-api/)
+- [Quenza ArchiveClient UpdateClient API](https://apis.io/collections/quenza/open-quenza-updateclient-api/)
+- [Quenza ArchiveClient UpdateMember API](https://apis.io/collections/quenza/open-quenza-updatemember-api/)
 
-Organize clients into groups for shared programs and communication - create a group and attach members to it.
+#### Security (2)
 
-- **Human URL:** [https://developers.quenza.com/docs/v1](https://developers.quenza.com/docs/v1)
-- **Base URL:** `https://developers.quenza.com/v1`
-- **Confirmed endpoints:** `POST /groups`, `POST /groups/{group}/members`
+Authentication, trust centre, and vulnerability disclosure.
 
-### Quenza Members API
+- [Quenza Authentication](https://apis.io/security/quenza/quenza-authentication/)
+- [Quenza Domain Security](https://apis.io/security/quenza/quenza-domain-security/)
 
-Manage the team members (professionals) in a workspace - list all members including pending and suspended ones, invite a new member with a member or manager role, and update member fields.
+#### Plans and pricing (2)
 
-- **Human URL:** [https://developers.quenza.com/docs/v1](https://developers.quenza.com/docs/v1)
-- **Base URL:** `https://developers.quenza.com/v1`
-- **Confirmed endpoints:** `GET/POST /members`, `PATCH /members/{professional}`
+Published plans, tiers and prices.
 
-### Quenza Tasks API
+- [Quenza Plans Pricing](https://apis.io/plans/quenza/quenza-plans-pricing/)
+- [Quenza Price Estimates](https://apis.io/plans/quenza/quenza-price-estimates/)
 
-List the tasks in a workspace (paginated), optionally filtered by assignee using `assignee_type` and `assignee_id` together.
+#### Rate limits (1)
 
-- **Human URL:** [https://developers.quenza.com/docs/v1](https://developers.quenza.com/docs/v1)
-- **Base URL:** `https://developers.quenza.com/v1`
-- **Confirmed endpoint:** `GET /tasks`
+Published request limits.
 
-## Common Properties
+- [Quenza Rate Limits](https://apis.io/rate-limits/quenza/quenza-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Quenza Finops](https://apis.io/finops/quenza/quenza-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://quenza.com)
-- [LinkedIn](https://www.linkedin.com/company/quenza)
 - [Documentation](https://developers.quenza.com/docs/v1)
-- [Support / Knowledge Base](https://help.quenza.com)
-- [Plans](plans/quenza-plans-pricing.yml)
-- [Rate Limits](rate-limits/quenza-rate-limits.yml)
-- [Fin Ops](finops/quenza-finops.yml)
+- [Pricing](https://quenza.com/pricing)
+- [Blog](https://quenza.com/blog/)
 
-## Authentication
+## API Evangelist rating
 
-Bearer token in the `Authorization` header:
+**Kin Score 33.6** — thin · rubric 0.24.0 · scored 2026-10-17
 
-```
-Authorization: Bearer {your-token}
-```
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 49.7 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 31.0 |
+| Access clarity | 42.1 |
 
-Generate or regenerate the token in the Quenza workspace under **Settings -> Developer Tools -> API Token**.
+**Agent readiness 22.9** — agent-aware
 
-## Maintainers
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Regulatory alignment 9.4** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/quenza/](https://apis.io/providers/quenza/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Quenza: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/quenza/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
